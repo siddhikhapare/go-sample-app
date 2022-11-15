@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-sample-app
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: go-sample-app
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: go-sample-app
+    spec:
+      containers:
+      - name: go-sample-app
+        image: milkygalaxy/go-sample-app:v1.0.0
+        ports:
+        - containerPort: 8080

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-sample-app-service
+  labels: 
+    app: go-sample-app
+  namespace: default
+spec:
+  selector:
+    app: go-sample-app
+    department: dev
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
